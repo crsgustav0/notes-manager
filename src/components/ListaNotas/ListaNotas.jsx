@@ -6,6 +6,7 @@ import './estilo.css'
     {} - Entende como comando JS
 */
 class ListaNotas extends Component {
+
   render() {
     return (
       <ul className="lista-notas">
@@ -14,7 +15,8 @@ class ListaNotas extends Component {
           Ao criar objeto Array, com a função 'Array' e popular com o '.of()', é possível 
           executar uma função a partir de cada item do Array, utilizando o '.map(nomeFunção)'
           */
-          Array.of('Trabalho', 'Trabalho', 'Estuszdos').map((categoria, index) => {
+          //Array.of('Trabalho', 'Trabalho', 'Estuszdos')
+          this.props.notas.map((nota, index) => {
             return (
               /*Para entender o recebimento de valores via variável, 
               é necessário passar entre '{}'
