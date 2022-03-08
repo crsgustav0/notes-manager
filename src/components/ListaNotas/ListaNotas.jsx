@@ -15,7 +15,7 @@ class ListaNotas extends Component {
           Ao criar objeto Array, com a função 'Array' e popular com o '.of()', é possível 
           executar uma função a partir de cada item do Array, utilizando o '.map(nomeFunção)'
           */
-          //Array.of('Trabalho', 'Trabalho', 'Estuszdos')
+          //Array.of('Trabalho', 'Tr'abalho', 'Estuszdos')
           this.props.notas.map((nota, index) => {
             return (
               /*Para entender o recebimento de valores via variável, 
@@ -27,7 +27,7 @@ class ListaNotas extends Component {
               */
               <li className="lista-notas_item" key={index}>
                 {/* <div>{categoria} </div> */}
-                <CardNota />
+                <CardNota titulo={nota.titulo} texto={nota.texto} />
               </li>
             );
           })
