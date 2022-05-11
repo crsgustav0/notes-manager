@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import FormularioCadastro from './components/FormularioCadastro';
 import ListaNotas from './components/ListaNotas';
+import ListaCategorias from './components/ListaCategorias';
 import "./assets/App.css";
 import "./assets/index.css";
 
@@ -11,7 +12,8 @@ class App extends Component {
     super()
     // state - Propriedade 'React' que ao ser executada chama automaticamente a função 'render()'
     this.state = {
-      notas: []
+      notas: [],
+      categorias: [],
     };
   }
 
@@ -44,6 +46,11 @@ class App extends Component {
         <FormularioCadastro
           criarNota={this.criarNota.bind(this)}
         />
+        <main>
+          <ListaCategorias
+            className='conteudo-principal'
+          />
+        </main>
         <ListaNotas
           apagarNota={this.deletarNota.bind(this)}
           notas={this.state.notas}
