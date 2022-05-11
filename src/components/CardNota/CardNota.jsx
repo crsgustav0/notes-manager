@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import "./estilo.css"
+import { ReactComponent as DeleteVSG } from '../../assets/img/delete.svg'
 
 class CardNota extends Component {
+
+    apagar() {
+        const indice = this.props.indice
+        this.props.apagarNota(indice)
+    }
+
     render() {
         return (
             /*Para fazer a estilização dos arquivos via CSS
@@ -15,6 +22,7 @@ class CardNota extends Component {
                     <h3 className='card-nota_titulo'>{
                         this.props.titulo
                     }</h3>
+                    <DeleteVSG onClick={this.apagar.bind(this)} />
                 </header>
                 <p className='card-nota_texto'>{
                     this.props.texto
