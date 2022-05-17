@@ -13,7 +13,10 @@ class App extends Component {
     // state - Propriedade 'React' que ao ser executada chama automaticamente a função 'render()'
     this.state = {
       notas: [],
-      categorias: [],
+      categorias: [
+        'Trabalho',
+        'Esportes',
+      ],
     };
   }
 
@@ -37,6 +40,12 @@ class App extends Component {
     this.setState({ nota: arrayNotas })
   }
 
+  adicionarCategoria(nomeCategoria) {
+    const novoArrayCategorias = [...this.state.categorias, nomeCategoria]
+    const novoEstado = { ...this.state, categorias: novoArrayCategorias }
+    this.setState(novoEstado)
+  }
+
   render() {
     return (
       /*
@@ -48,13 +57,15 @@ class App extends Component {
         />
         <main>
           <ListaCategorias
+            adicionarCategoria={this.adicionarCategoria.bind(this)}
             className='conteudo-principal'
+            categorias={this.state.categorias}
+          />
+          <ListaNotas
+            apagarNota={this.deletarNota.bind(this)}
+            notas={this.state.notas}
           />
         </main>
-        <ListaNotas
-          apagarNota={this.deletarNota.bind(this)}
-          notas={this.state.notas}
-        />
       </section>
     );
   }
