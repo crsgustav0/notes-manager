@@ -53,6 +53,7 @@ class App extends Component {
       */
       <section className='conteudo'>
         <FormularioCadastro
+          categorias={this.state.categorias  }
           criarNota={this.criarNota.bind(this)}
         />
         <main>
