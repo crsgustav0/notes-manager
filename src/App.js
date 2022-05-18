@@ -20,9 +20,9 @@ class App extends Component {
     };
   }
 
-  criarNota(titulo, texto) {
+  criarNota(titulo, texto, categoria) {
     // Criação de novo objeto
-    const novaNota = { titulo, texto }
+    const novaNota = { titulo, texto, categoria }
     //Recebe todo o conteudo e atribui a uma variável 
     const novoArrayNotas = [...this.state.notas, novaNota]
     const novoEstado = {
