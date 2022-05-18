@@ -15,7 +15,20 @@ class FormularioCadastro extends Component {
         super(props)
         this.titulo = '';
         this.texto = '';
-        this.props.criarNota(this.titulo, this.texto);
+        this.categoria = 'Sem categoria';
+        //this.props.criarNota(this.titulo, this.texto, this.categoria);
+    }
+
+    /*
+    Criação de função a partir da interação de componentes, 
+    passando o evento a ser tratado via parâmetro
+    stopPropagation - Cancela a propagação via módulos, classe do evento do componente
+    */
+    _handleMudancaCategoria(evento) {
+        evento.stopPropagation();
+        /*Ao mudar via clique a categoria selecionada, 
+        atualiza a coluna que o card sera adicionado*/
+        this.categoria = evento.target.value;
     }
 
     /*
@@ -43,17 +56,18 @@ class FormularioCadastro extends Component {
     _criarNota(evento) {
         evento.preventDefault();
         evento.stopPropagation();
-        this.props.criarNota(this.titulo, this.texto);
+        this.props.criarNota(this.titulo, this.texto, this.categoria);
     }
 
     /*Necessário utilizar por se tratar de um componente */
     render() {
         return ( /*form - Criação componente formulario*/
             <form className="form-cadastro"
+                onChange={this._handleMudancaCategoria.bind(this)}
                 onSubmit={this._criarNota.bind(this)}
             >
-
                 <select className="form-cadastro_input">
+                    <option>Sem categoria</option>
                     {this.props.categorias.map(categoria => {
                         return <option>{categoria}</option>
                     })}
