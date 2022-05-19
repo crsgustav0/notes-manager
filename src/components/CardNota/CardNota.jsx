@@ -23,6 +23,7 @@ class CardNota extends Component {
                         this.props.titulo
                     }</h3>
                     <DeleteVSG onClick={this.apagar.bind(this)} />
+                    <h4>{this.props.categoria}</h4>
                 </header>
                 <p className='card-nota_texto'>{
                     this.props.texto
