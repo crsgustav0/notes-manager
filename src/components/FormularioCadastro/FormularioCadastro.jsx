@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './estilo.css'
+import "./estilo.css"
 
 /*
     export - Necessário para que seja acessível a outros módulos, arquivo do projeto 
@@ -12,11 +12,10 @@ class FormularioCadastro extends Component {
     realizando a comunicação entre funções
     */
     constructor(props) {
-        super(props)
-        this.titulo = '';
-        this.texto = '';
-        this.categoria = 'Sem categoria';
-        //this.props.criarNota(this.titulo, this.texto, this.categoria);
+        super(props);
+        this.titulo = "";
+        this.texto = "";
+        this.categoria = "Sem Categoria";
     }
 
     /*
@@ -91,11 +90,11 @@ class FormularioCadastro extends Component {
                     className="form-cadastro_input"
                     onChange={this._handleMudancaNota.bind(this)}
                 />
-                <button className="form-cadastro_input form_cadastro_submit"
+                <button className="form-cadastro_input form-cadastro_submit">
                     Criar Nota
-                />
+                </button>
             </form>
-        )
+        );
     }
 }
 
