@@ -16,6 +16,15 @@ class FormularioCadastro extends Component {
         this.titulo = "";
         this.texto = "";
         this.categoria = "Sem Categoria";
+        this.state = { categorias: [] }
+    }
+
+    componentDidMount() {
+        this.props.categoria.inscrever(this._novasCategorias.bind(this));
+    }
+
+    _novasCategorias(categorias) {
+        this.setState([...this.state, categorias])
     }
 
     /*
@@ -67,8 +76,8 @@ class FormularioCadastro extends Component {
             >
                 <select className="form-cadastro_input">
                     <option>Sem categoria</option>
-                    {this.props.categorias.map(categoria => {
-                        return <option>{categoria}</option>
+                    {this.props.categorias.map((categoria, index) => {
+                        return <option key={index}>{categoria}</option>
                     })}
                 </select>
                 <input
