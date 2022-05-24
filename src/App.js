@@ -4,7 +4,7 @@ import FormularioCadastro from './components/FormularioCadastro';
 import ListaCategorias from './components/ListaCategorias';
 import "./assets/App.css";
 import "./assets/index.css";
-import Categorias from './data/Categoria';
+import Categorias from './data/Categorias';
 import ArrayNotas from './data/Notas';
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
         />
         <main>
           <ListaCategorias
-            adicionarCategoria={this.adicionarCategoria}
+            adicionarCategoria={this.categorias.adicionarCategoria.bind(this.categorias)}
             className='conteudo-principal'
             categorias={this.categorias.categorias}
           />
