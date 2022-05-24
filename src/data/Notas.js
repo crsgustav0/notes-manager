@@ -9,6 +9,7 @@ export default class ArrayNotas {
     adicionarNotas(titulo, texto, categoria) {
         const novaNota = new Nota(titulo, texto, categoria)
         this.notas.push(novaNota)
+        this.notificar()
     }
 
     /*Remove um item da lista de notas passando via parâmetro seu índice */
@@ -26,7 +27,7 @@ export default class ArrayNotas {
     */
     notificar() {
         this._inscritos.forEach(func => {
-            func(this.categorias)
+            func(this.notas)
         })
     }
 }
