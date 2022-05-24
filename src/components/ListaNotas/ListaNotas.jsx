@@ -7,6 +7,19 @@ import './estilo.css'
 */
 class ListaNotas extends Component {
 
+  constructor() {
+    super()
+    this.setState = { notas: [] }
+  }
+
+  componentDidMount() {
+    this.props.notas.inscrever(this._novasNotas.bind(this))
+  }
+
+  _novasNotas(notas) {
+    this.setState({ ...this.state, notas })
+  }
+
   render() {
     return (
       <ul className="lista-notas">
@@ -16,7 +29,7 @@ class ListaNotas extends Component {
           executar uma função a partir de cada item do Array, utilizando o '.map(nomeFunção)'
           */
           //Array.of('Trabalho', 'Tr'abalho', 'Estuszdos')
-          this.props.notas.map((nota, index) => {
+          this.state.notas.map((nota, index) => {
             return (
               /*Para entender o recebimento de valores via variável, 
               é necessário passar entre '{}'
