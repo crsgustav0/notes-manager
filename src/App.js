@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
-import FormularioCadastro from './components/FormularioCadastro';
 import ListaNotas from './components/ListaNotas';
+import FormularioCadastro from './components/FormularioCadastro';
 import ListaCategorias from './components/ListaCategorias';
 import "./assets/App.css";
 import "./assets/index.css";
