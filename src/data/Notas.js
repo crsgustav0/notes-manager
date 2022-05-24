@@ -1,6 +1,7 @@
 export default class ArrayNotas {
     constructor() {
         this.notas = []
+        this._inscritos = []
     }
 
 
@@ -13,6 +14,20 @@ export default class ArrayNotas {
     /*Remove um item da lista de notas passando via parâmetro seu índice */
     deletarNota(indice) {
         this.notas.splice(indice, 1)
+    }
+
+    /*Adiciona ao array o elemento passado via parâmetro*/
+    inscrever(func) {
+        this._inscritos.push(func)
+    }
+
+    /*Para cada objeto recebido via array, executa a função 
+    passada via parâmetro
+    */
+    notificar() {
+        this._inscritos.forEach(func => {
+            func(this.categorias)
+        })
     }
 }
 
