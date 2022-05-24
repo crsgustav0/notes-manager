@@ -22,6 +22,10 @@ export default class ArrayNotas {
         this._inscritos.push(func)
     }
 
+    desinscrever(func) {
+        this._inscritos = this._inscritos.filter(f => f !== func)
+    }
+
     /*Para cada objeto recebido via array, executa a função 
     passada via parâmetro
     */
